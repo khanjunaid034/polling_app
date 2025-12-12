@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.formElements {
+ @apply border px-1 py-1 rounded-md w-60;
+}
