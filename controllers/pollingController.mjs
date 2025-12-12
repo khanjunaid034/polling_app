@@ -54,10 +54,10 @@ export const updateVote = async (req, res, next) => {
         const total = poll.option1Votes + poll.option2Votes + poll.option3Votes + poll.option4Votes;
 
         // update percentages
-        poll.option1Percentage = 100 * (poll.option1Votes / total);
-        poll.option2Percentage = 100 * (poll.option2Votes / total);
-        poll.option3Percentage = 100 * (poll.option3Votes / total);
-        poll.option4Percentage = 100 * (poll.option4Votes / total);
+        poll.option1Percentage = Number((100 * (poll.option1Votes / total)).toFixed(2));
+        poll.option2Percentage = Number((100 * (poll.option2Votes / total)).toFixed(2));
+        poll.option3Percentage = Number((100 * (poll.option3Votes / total)).toFixed(2));
+        poll.option4Percentage = Number((100 * (poll.option4Votes / total)).toFixed(2));
 
         await poll.save({ runValidators: true });
 
